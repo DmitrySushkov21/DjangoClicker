@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <script src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="utf-8">
+    <title>АБОБАНИЗАЦИЯ</title>
+</head>
+<body onload="getUser({{ user.id }})">
+<div class="wrapper">
+    <header>
+        <div class="header-container">
+            <a href="https://www.youtube.com/watch?v=3HrSVXP99kQ&ab_channel=DolbaLight">
+                <img src="{% static 'images/aboba.png' %}">
+            </a>
+            <div class="delta-header">
+                <h2 class="nickname-header" id="user">%user%</h2>
+                <a href="/logout" style="height: 28px;">Выйти</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div>
+            <div id="user_data" class="user-data">
+                <h3> Сила абобанмизации
+                    <div id="clickPower">%clickPower%</div>
+                </h3>
+                <h3>У тебя
+                    <div id="data">%coins%</div>
+                    абобамонет
+                </h3>
+                <h3> Сила автоабобания
+                    <div id="autoClickPower"> {{ mainCycle.autoClickPower }} </div>
+                    абобы каждую секунду
+                </h3>
+            </div>
+            <input type="image" style="width: 500px" class="glad rot" src="{% static 'images/glad.png' %}"
+                   onclick="callClick()"/>
+        </div>
+    </main>
+    <aside>
+        <div class="boost-wrapper" id="boost-wrapper">
+            <div class="boost-holder" id="boost-holder" onclick="buyBoost(0)">
+                <div class="item-1">
+                    <input type="image" style="height: 145px; width: 150px; border-radius: 20px"
+                           src="https://i.ytimg.com/vi/aD-fFyGvDW8/maxresdefault.jpg"/>
+                </div>
+                <div class="item-2">
+                    <div class="box-1">
+                        <div>Сила АБОБЫ:
+                            <div id="boostPower">0</div>
+                        </div>
+                        <div>Купи эту АБОБУ за
+                            <div id="boostPrice">10</div>
+                        </div>
+                    </div>
+                    <div class="box-2">
+                        <div>Уровень АБОБАбуста
+                            <div id="boostLevel" class="">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>
+</body>
+</html>

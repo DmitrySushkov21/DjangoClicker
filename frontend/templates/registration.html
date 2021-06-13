@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <meta charset="utf-8">
+    <title>ABOBA REGISTER</title>
+</head>
+<body>
+<body>
+<header><h3>REGISTRATION</h3></header>
+<main>
+    <div align="center">
+        <form method="post" action="{% url 'registration' %}">
+        {% csrf_token %}
+            <div class="form-group">
+                <label for="username"> Логин: </label>
+
+                <input type="text" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <label for="password"> Пароль: </label>
+
+                <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Зарегистрироваться">
+            </div>
+            {% if invalid %}
+                <p> Incorrect login or password. </p>
+            {% endif %}
+        </form>
+    </div>
+    <br>
+    <div align="center"><a href="/login">Войти</a></div>
+</main>
+</body>
+</html>
